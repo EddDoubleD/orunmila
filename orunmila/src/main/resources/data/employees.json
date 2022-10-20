@@ -1,0 +1,242 @@
+[
+  {
+    "name": "Булавин Илья Владимирович",
+    "login": "bulavin.ilya",
+    "email": "bulavin.ilya@otr.ru" ,
+    "skype": null,
+    "github": null,
+    "role": null,
+    "projects": ["ПУР"],
+    "position": "Программист",
+    "subdivision": "БФПВР/ЦРСГФ/ДП/УРА/ОПРД",
+    "skills": [
+      {
+        "key": "java core",
+        "value": "80"
+      },
+      {
+        "key": "Spring",
+        "value": "60"
+      },
+      {
+        "key": "Soft",
+        "value": "75"
+      },
+      {
+        "key": "УФОС",
+        "value": "80"
+      }
+    ],
+    "idpTemplate" : null
+  },
+  {
+    "name": "Гиззатуллин Артём Ринатович",
+    "login": "gizzatullin.artem",
+    "email": "gizzatullin.artem@otr.ru" ,
+    "skype": null,
+    "github": null,
+    "role": null,
+    "projects": ["ПУР"],
+    "position": "Программист",
+    "subdivision": "БФПВР/ЦРСГФ/ДП/УРА/ОПРД",
+    "skills": [
+      {
+        "key": "java core",
+        "value": "60"
+      },
+      {
+        "key": "Spring",
+        "value": "30"
+      },
+      {
+        "key": "Soft",
+        "value": "40"
+      },
+      {
+        "key": "УФОС",
+        "value": "50"
+      }
+    ],
+    "idpTemplate" : null
+  },
+  {
+    "name": "Гостев Денис Алексеевич",
+    "login": "gostev.denis",
+    "email": "gostev.denis@otr.ru" ,
+    "skype": null,
+    "github": null,
+    "role": null,
+    "projects": ["ПУиО"],
+    "position": "Программист",
+    "subdivision": "БФПВР/ЦРСГФ/ДП/УРА/ОПРД",
+    "skills": [
+      {
+        "key": "java core",
+        "value": "80"
+      },
+      {
+        "key": "Spring",
+        "value": "60"
+      },
+      {
+        "key": "Soft",
+        "value": "75"
+      },
+      {
+        "key": "УФОС",
+        "value": "80"
+      }
+    ],
+    "idpTemplate" : null
+  },
+  {
+    "name": "Лихачев Владислав Сергеевич",
+    "login": "likhachev.vladislav",
+    "email": "likhachev.vladislav@otr.ru" ,
+    "skype": null,
+    "github": null,
+    "role": null,
+    "projects": ["ПУиО"],
+    "position": "Программист",
+    "subdivision": "БФПВР/ЦРСГФ/ДП/УРА/ОПРД",
+    "skills": [
+      {
+        "key": "java core",
+        "value": "80"
+      },
+      {
+        "key": "Spring",
+        "value": "60"
+      },
+      {
+        "key": "Soft",
+        "value": "75"
+      },
+      {
+        "key": "УФОС",
+        "value": "80"
+      }
+    ],
+    "idpTemplate" : null
+  },
+  {
+    "name": "Малков Павел Олегович",
+    "login": "malkov.pavel",
+    "email": "malkov.pavel@otr.ru" ,
+    "skype": null,
+    "github": null,
+    "role": null,
+    "projects": ["ПУР КС"],
+    "position": "Программист",
+    "subdivision": "БФПВР/ЦРСГФ/ДП/УРА/ОПРД",
+    "skills": [
+      {
+        "key": "java core",
+        "value": "80"
+      },
+      {
+        "key": "Spring",
+        "value": "60"
+      },
+      {
+        "key": "Soft",
+        "value": "75"
+      },
+      {
+        "key": "УФОС",
+        "value": "80"
+      }
+    ],
+    "idpTemplate" : null
+  },
+  {
+    "name": "Меречко Дмитрий Владимирович",
+    "login": "merechko.dmitriy",
+    "email": "merechko.dmitriy@otr.ru" ,
+    "skype": null,
+    "github": null,
+    "role": null,
+    "projects": ["ПУР"],
+    "position": "Программист",
+    "subdivision": "БФПВР/ЦРСГФ/ДП/УРА/ОПРД",
+    "skills": [
+      {
+        "key": "java core",
+        "value": "80"
+      },
+      {
+        "key": "Spring",
+        "value": "60"
+      },
+      {
+        "key": "Soft",
+        "value": "75"
+      },
+      {
+        "key": "УФОС",
+        "value": "80"
+      }
+    ],
+    "idpTemplate" : null
+  },
+  {
+    "name": "Минина Юлия Александровна",
+    "login": "minina.yuliya",
+    "email": "minina.yuliya@otr.ru" ,
+    "skype": null,
+    "github": null,
+    "role": null,
+    "projects": ["ПУР КС"],
+    "position": "Программист",
+    "subdivision": "БФПВР/ЦРСГФ/ДП/УРА/ОПРД",
+    "skills": [
+      {
+        "key": "java core",
+        "value": "80"
+      },
+      {
+        "key": "Spring",
+        "value": "60"
+      },
+      {
+        "key": "Soft",
+        "value": "75"
+      },
+      {
+        "key": "УФОС",
+        "value": "80"
+      }
+    ],
+    "idpTemplate" : null
+  },
+  {
+    "name": "Моздир Тарас Игоревич",
+    "login": "mozdir.taras",
+    "email": "mozdir.taras@otr.ru" ,
+    "skype": null,
+    "github": null,
+    "role": null,
+    "projects": ["СУФД"],
+    "position": "Программист",
+    "subdivision": "БФПВР/ЦРСГФ/ДП/УРА/ОПРД",
+    "skills": [
+      {
+        "key": "java core",
+        "value": "80"
+      },
+      {
+        "key": "Spring",
+        "value": "60"
+      },
+      {
+        "key": "Soft",
+        "value": "75"
+      },
+      {
+        "key": "УФОС",
+        "value": "80"
+      }
+    ],
+    "idpTemplate" : null
+  }
+]
