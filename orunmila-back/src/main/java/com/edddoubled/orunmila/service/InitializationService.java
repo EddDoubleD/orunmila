@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class InitializationService {
 
-    private static final String DIRECTORY = "orunmila/src/main/resources/data/";
+    private static final String DIRECTORY = "orunmila-back/src/main/resources/data/";
     private static final String PROJECT = "projects.json";
     private static final String EMPLOYEE = "employees.json";
     private static final String MATRIX = "rolesMatrix.json";

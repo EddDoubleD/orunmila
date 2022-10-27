@@ -10,7 +10,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
@@ -25,16 +24,10 @@ public class EmployeeService {
 
     EmployeeRepository employeeRepository;
 
-    MongoTemplate template;
-
-
-    public Optional<Employee> findEmployeeByName(String name) {
-        return employeeRepository.findEmployeeByName(name);
+    public List<Employee> getAllEmployees() {
+        return employeeRepository.findAll();
     }
 
-    public Optional<Employee> findEmployeeByLogin(String login) {
-        return employeeRepository.findEmployeeByLogin(login);
-    }
 
     /**
      * Generates a query in the database to select a collection by size and position
@@ -46,6 +39,15 @@ public class EmployeeService {
     public Page<Employee> findPageableEmployees(int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
         return employeeRepository.findAll(pageable);
+    }
+
+
+    public Optional<Employee> findEmployeeByName(String name) {
+        return employeeRepository.findEmployeeByName(name);
+    }
+
+    public Optional<Employee> findEmployeeByLogin(String login) {
+        return employeeRepository.findEmployeeByLogin(login);
     }
 
 

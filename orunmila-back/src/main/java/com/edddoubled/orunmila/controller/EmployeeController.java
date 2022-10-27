@@ -1,13 +1,16 @@
 package com.edddoubled.orunmila.controller;
 
+import com.edddoubled.orunmila.dto.response.PageableEmployees;
 import com.edddoubled.orunmila.model.Employee;
 import com.edddoubled.orunmila.service.EmployeeService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,6 +26,29 @@ import java.util.Optional;
 public class EmployeeController {
 
     EmployeeService employeeService;
+
+    @GetMapping("/all")
+    public ResponseEntity<List<Employee>> getAllEmployees() {
+        List<Employee> employees = employeeService.getAllEmployees();
+        return new ResponseEntity<>(employees, HttpStatus.OK);
+    }
+
+    @GetMapping("/all/pageable")
+    public ResponseEntity<PageableEmployees> getPageableEmployees(@RequestParam("page") Integer page,
+                                                                  @RequestParam("size") Integer size) {
+        PageableEmployees response = new PageableEmployees();
+        Page<Employee> pageable = employeeService.findPageableEmployees(page - 1, size);
+        if (CollectionUtils.isEmpty(pageable.getContent()))  {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        response.setPage(page);
+        response.setTotalPages(pageable.getTotalPages());
+        response.setItemsSize(pageable.getTotalElements());
+        response.setEmployees(pageable.getContent());
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
 
     @GetMapping("/findByProject/{project}")
     public ResponseEntity<List<Employee>> findByProject(@PathVariable("project") String project) {
