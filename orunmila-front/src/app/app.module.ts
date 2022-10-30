@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { GojsAngularModule } from 'gojs-angular';
+
 import { AppRoutingModule } from './app-routing.module'; // CLI imports AppRoutingModule
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -13,6 +15,8 @@ import { DetailsComponent } from './profile/details/details.component';
 import { IdpComponent } from './profile/idp/idp.component';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +26,7 @@ import { IdpComponent } from './profile/idp/idp.component';
     IdpComponent
   ],
   imports: [
+    GojsAngularModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule, 
