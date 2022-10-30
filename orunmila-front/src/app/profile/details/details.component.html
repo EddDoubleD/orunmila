@@ -1,55 +1,49 @@
-<h2 class="title">Profile</h2>
     <form class="form-horizontal">
         <fieldset class="fieldset">
-            <h3 class="fieldset-title">Project Information</h3>
+            <h1 class="fieldset-title">Проектная информация</h1>
             <div class="form-group">
-                <label class="col-md-2 col-sm-3 col-xs-12 control-label">User Name</label>
-                <div class="col-md-10 col-sm-9 col-xs-12">
-                    <input [(ngModel)]="employee.name" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+                <h6 class="col-md-2 col-sm-3 col-xs-12 control-label">ФИО</h6>
+                <div class="col-md-10 col-sm-9 col-xs-12" style="color:gray">
+                    <p>Иванов Иван Иванович</p>
                 </div>
             </div>
             
             <div class="form-group">
-                <label class="col-md-2 col-sm-3 col-xs-12 control-label">First Name</label>
-                <div class="col-md-10 col-sm-9 col-xs-12">
-                    <input type="text" class="form-control" value="Rebecca">
+                <h6 class="col-md-2 col-sm-3 col-xs-12 control-label">Роль</h6>
+                <div class="col-md-10 col-sm-9 col-xs-12" style="color:gray">
+                    Разработчик
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-md-2 col-sm-3 col-xs-12 control-label">Last Name</label>
-                <div class="col-md-10 col-sm-9 col-xs-12">
-                    <input type="text" class="form-control" value="Sanders">
+                <h6 class="col-md-2 col-sm-3 col-xs-12 control-label">Проекты</h6>
+                <div class="col-md-10 col-sm-9 col-xs-12" style="color:gray">
+                    ПУР, ПУиО
                 </div>
             </div>
         </fieldset>
+        <br/>
         <fieldset class="fieldset">
-            <h3 class="fieldset-title">Contact Info</h3>
+            <h2 class="fieldset-title">Контакты</h2>
             <div class="form-group">
-                <label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
-                <div class="col-md-10 col-sm-9 col-xs-12">
-                    <input type="email" class="form-control" value="Rebecca@website.com">
-                    <p class="help-block">This is the email </p>
+                <h6 class="col-md-2  col-sm-3 col-xs-12 control-label">Email</h6>
+                <div class="col-md-10 col-sm-9 col-xs-12" style="color:gray">
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                    ivanov.ext@mail.com
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-md-2  col-sm-3 col-xs-12 control-label">Twitter</label>
-                <div class="col-md-10 col-sm-9 col-xs-12">
-                    <input type="text" class="form-control" value="SpeedyBecky">
-                    <p class="help-block">Your twitter username</p>
+                <h6 class="col-md-2  col-sm-3 col-xs-12 control-label">Skype</h6>
+                <div class="col-md-10 col-sm-9 col-xs-12" style="color:gray">
+                    <i class="fa fa-skype" aria-hidden="true"></i>
+                    ivanov.ext
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-md-2  col-sm-3 col-xs-12 control-label">Linkedin</label>
-                <div class="col-md-10 col-sm-9 col-xs-12">
-                    <input type="url" class="form-control" value="https://www.linkedin.com/in/lorem">
-                    <p class="help-block">eg. https://www.linkedin.com/in/yourname</p>
+                <h6 class="col-md-2  col-sm-3 col-xs-12 control-label">GitHub</h6>
+                <div class="col-md-10 col-sm-9 col-xs-12" style="color:gray">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                    ivanov.ext
                 </div>
             </div>
         </fieldset>
-        <hr>
-        <div class="form-group">
-            <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                <input class="btn btn-primary" type="submit" value="Update Profile">
-            </div>
-        </div>
     </form>
