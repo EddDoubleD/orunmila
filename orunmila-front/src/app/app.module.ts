@@ -13,6 +13,7 @@ import { StoreService } from './_services/store.service';
 import { FormsModule } from '@angular/forms';
 import { DetailsComponent } from './profile/details/details.component';
 import { IdpComponent } from './profile/idp/idp.component';
+import { SkillsComponent } from './profile/skills/skills.component';
 
 
 
@@ -23,7 +24,8 @@ import { IdpComponent } from './profile/idp/idp.component';
     ProfileComponent,
     HomeComponent,
     DetailsComponent,
-    IdpComponent
+    IdpComponent,
+    SkillsComponent
   ],
   imports: [
     GojsAngularModule,

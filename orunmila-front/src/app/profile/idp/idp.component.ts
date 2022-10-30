@@ -184,7 +184,10 @@ export class IdpComponent implements OnInit {
             { click: (e, obj) => this.save() }),
           $("ContextMenuButton",
             $(go.TextBlock, "Load"),
-            { click: (e, obj) => this.load() })
+            { click: (e, obj) => this.load() }),
+          $("ContextMenuButton",
+            $(go.TextBlock, "layoutAll"),
+            { click: (e, obj) => this.layoutAll()})
         );
 
       this.diagram.addDiagramListener("SelectionMoved", e => {

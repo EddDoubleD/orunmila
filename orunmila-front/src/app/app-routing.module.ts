@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { DetailsComponent } from './profile/details/details.component';
 import { IdpComponent } from './profile/idp/idp.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SkillsComponent } from './profile/skills/skills.component';
 
 const routes: Routes = [
   { 
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'idp',
         component: IdpComponent 
+      },
+      {
+        path: 'skills',
+        component: SkillsComponent
       }
     ]
   }  
