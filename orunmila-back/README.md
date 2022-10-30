@@ -13,7 +13,7 @@ their development and competence maps
 Build:
 ``docker image build . -t orunmila-back:1.0.0``<br/>
 Run:
-``docker run -d --name sudoku-ninja -p 8080:8080 orunmila-back:1.0.0``
+``docker run -d --name orunmila-back -p 8080:8080 orunmila-back:1.0.0``
 
 ## Helpfulness
 - [about docker](https://habr.com/ru/company/ruvds/blog/485650/) <br/>
