@@ -40,7 +40,7 @@ body{
     display: inline-block;
     width: 100px;
     margin-right: 5px;
-    text-align: right
+    text-align: right;
     }
     
     .view-account .side-bar .user-info .meta li a {
