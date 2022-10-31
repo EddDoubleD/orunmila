@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { DetailsComponent } from './profile/details/details.component';
 import { IdpComponent } from './profile/idp/idp.component';
 import { SkillsComponent } from './profile/skills/skills.component';
+import { ProjectComponent } from './profile/project/project.component';
+import { SubdivisionComponent } from './profile/subdivision/subdivision.component';
 
 
 
@@ -25,7 +27,9 @@ import { SkillsComponent } from './profile/skills/skills.component';
     HomeComponent,
     DetailsComponent,
     IdpComponent,
-    SkillsComponent
+    SkillsComponent,
+    ProjectComponent,
+    SubdivisionComponent
   ],
   imports: [
     GojsAngularModule,
