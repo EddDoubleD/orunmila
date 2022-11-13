@@ -37,42 +37,27 @@ public class Employee implements Serializable {
 
     String github;
 
-    Role role;
-
     List<String> projects;
 
     String position;
 
     String subdivision;
 
-    List<Pair> skills;
+    List<SkillBadge> skills;
 
-    List<IDPNode> idpTemplate;
+    List<Node> data;
 
 
     @Getter
     @Setter
     @FieldDefaults(level= AccessLevel.PRIVATE)
     @NoArgsConstructor
-    public static class IDPNode implements Serializable {
+    public static class Node implements Serializable {
         int key;
         int parent;
         String text;
         String brush;
         String dir;
         String loc;
-    }
-
-
-
-    @Getter
-    @Setter
-    @FieldDefaults(level= AccessLevel.PRIVATE, makeFinal = true)
-    @AllArgsConstructor
-    public static class Pair implements Serializable {
-
-        String key;
-
-        String value;
     }
 }

@@ -1,0 +1,83 @@
+[
+  {
+    "name": "Попов Иван Сергеевич",
+    "login": "popov.ivan",
+    "email": "popov.ivan@otr.ru" ,
+    "skype": "newtonchik_i",
+    "github": null,
+    "role": null,
+    "projects": ["ПУР"],
+    "position": "Руководитель проекта",
+    "subdivision": "Manager department",
+    "skills": [
+      {
+        "header": "Soft",
+        "skills": [
+          {
+            "title": "Коммуникации ",
+            "progress": 100
+          },
+          {
+            "title": "Тайм-менеджмент",
+            "progress": 85
+          }
+        ]
+      }
+    ],
+    "idpTemplate" : null
+  },
+  {
+    "name": "Крылов Никита",
+    "login": "krylov.nikita",
+    "email": "krylov.nikita@otr.ru" ,
+    "skype": "art7620",
+    "github": null,
+    "role": null,
+    "projects": ["ПУР"],
+    "position": "Менеджер проекта",
+    "subdivision": "Manager department",
+    "skills": [
+      {
+        "header": "Soft",
+        "skills": [
+          {
+            "title": "Коммуникации ",
+            "progress": 100
+          },
+          {
+            "title": "Тайм-менеджмент",
+            "progress": 85
+          }
+        ]
+      }
+    ],
+    "idpTemplate" : null
+  },
+  {
+    "name": "Булавин Илья Владимирович",
+    "login": "bulavin.ilya",
+    "email": "bulavin.ilya@otr.ru" ,
+    "skype": "sam47kon",
+    "github": null,
+    "role": null,
+    "projects": ["ПУР"],
+    "position": "Менеджер проекта",
+    "subdivision": "Manager department",
+    "skills": [
+      {
+        "header": "Soft",
+        "skills": [
+          {
+            "title": "Коммуникации ",
+            "progress": 100
+          },
+          {
+            "title": "Тайм-менеджмент",
+            "progress": 85
+          }
+        ]
+      }
+    ],
+    "idpTemplate" : null
+  }
+]

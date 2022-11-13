@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CardSkills, SkillProgres } from 'src/app/_models/cardSkills';
+import { StorageService } from 'src/app/_services/storage.service';
 
 @Component({
   selector: 'app-skills',
@@ -9,63 +10,16 @@ import { CardSkills, SkillProgres } from 'src/app/_models/cardSkills';
 export class SkillsComponent implements OnInit {
 
   data?: Array<CardSkills>;
-  s: string = `[
-    {
-      "header": "Hard",
-      "skills": [
-        {
-          "title": "Java",
-          "progress": 5
-        },
-        {
-          "title": "jopa",
-          "progress": 10
-        },
-        {
-          "title": "jopa",
-          "progress": 15
-        },
-        {
-          "title": "jopa",
-          "progress": 25
-        },
-        {
-          "title": "jopa",
-          "progress": 55
-        }  
-      ]
-    },
-    {
-      "header": "Soft",
-      "skills": [
-        {
-          "title": "Java",
-          "progress": 20
-        },
-        {
-          "title": "polnaya jopa",
-          "progress": 10
-        },
-        {
-          "title": "jopa",
-          "progress": 15
-        },
-        {
-          "title": "jopa",
-          "progress": 25
-        },
-        {
-          "title": "jopa",
-          "progress": 100
-        }  
-      ]
-    }
-  ]`;
 
-  constructor() { }
+  employee: any;
+
+  constructor(private storageService: StorageService) { }
 
   ngOnInit(): void {
-    this.data = JSON.parse(this.s);
+    // 
+    this.employee = this.storageService.getUser();
+
+    this.data = this.employee.skills;
     if (this.data) {
       for (let d of this.data) {
         for (let k of d.skills) {
@@ -82,7 +36,6 @@ export class SkillsComponent implements OnInit {
             k.color = "bg-success";
           }
         }
-       
         }
       }
     }

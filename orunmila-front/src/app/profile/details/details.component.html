@@ -4,20 +4,20 @@
             <div class="form-group">
                 <h6 class="col-md-2 col-sm-3 col-xs-12 control-label">ФИО</h6>
                 <div class="col-md-10 col-sm-9 col-xs-12" style="color:gray">
-                    <p>Иванов Иван Иванович</p>
+                    <p>{{employee.name}}</p>
                 </div>
             </div>
             
             <div class="form-group">
                 <h6 class="col-md-2 col-sm-3 col-xs-12 control-label">Роль</h6>
                 <div class="col-md-10 col-sm-9 col-xs-12" style="color:gray">
-                    Разработчик
+                    {{employee.position}}
                 </div>
             </div>
             <div class="form-group">
                 <h6 class="col-md-2 col-sm-3 col-xs-12 control-label">Проекты</h6>
                 <div class="col-md-10 col-sm-9 col-xs-12" style="color:gray">
-                    ПУР, ПУиО
+                    {{employee.projects[0]}}
                 </div>
             </div>
         </fieldset>
@@ -28,21 +28,21 @@
                 <h6 class="col-md-2  col-sm-3 col-xs-12 control-label">Email</h6>
                 <div class="col-md-10 col-sm-9 col-xs-12" style="color:gray">
                     <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                    ivanov.ext@mail.com
+                    {{employee.email}}
                 </div>
             </div>
             <div class="form-group">
                 <h6 class="col-md-2  col-sm-3 col-xs-12 control-label">Skype</h6>
                 <div class="col-md-10 col-sm-9 col-xs-12" style="color:gray">
                     <i class="fa fa-skype" aria-hidden="true"></i>
-                    ivanov.ext
+                    {{employee.skype}}
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" *ngIf="employee.github">
                 <h6 class="col-md-2  col-sm-3 col-xs-12 control-label">GitHub</h6>
                 <div class="col-md-10 col-sm-9 col-xs-12" style="color:gray">
                     <i class="fa fa-github" aria-hidden="true"></i>
-                    ivanov.ext
+                    {{employee.github}}
                 </div>
             </div>
         </fieldset>

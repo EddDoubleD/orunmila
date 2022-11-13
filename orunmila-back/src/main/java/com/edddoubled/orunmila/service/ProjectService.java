@@ -8,8 +8,10 @@ import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import javax.swing.text.html.Option;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 @FieldDefaults(level= AccessLevel.PRIVATE, makeFinal = true)
 @AllArgsConstructor
@@ -19,6 +21,9 @@ public class ProjectService {
 
     ProjectRepository projectRepository;
 
+    public Optional<Project> findProjectByName(String name) {
+        return projectRepository.findProjectByName(name);
+    }
 
     public Project save(Project project) {
         return projectRepository.save(project);

@@ -1,5 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import * as go from 'gojs';
+import { ProjectService } from 'src/app/_services/project.service';
+import { StorageService } from 'src/app/_services/storage.service';
 
 const $ = go.GraphObject.make;
 
@@ -12,35 +15,40 @@ export class ProjectComponent implements OnInit {
 
   public diagram!: go.Diagram;
 
-  //@Input()
-  //public model!: go.Model;
-  public model: go.TreeModel = new go.TreeModel(
-    [
-      { 'key': 1, 'name': 'Иван Сергеев', 'title': 'CEO' },
-      { 'key': 2, 'name': 'Сергей Иванов', 'title': 'VP Marketing/Sales', 'parent': 1 },
-      { 'key': 3, 'name': 'Лена Николаева', 'title': 'Sales', 'parent': 2 },
-      { 'key': 4, 'name': 'Алексей Смирнов', 'title': 'VP Engineering', 'parent': 1 },
-      { 'key': 5, 'name': 'Мария Александрова', 'title': 'Manufacturing', 'parent': 4 },
-      { 'key': 6, 'name': 'Николай Алексеев', 'title': 'Marketing', 'parent': 2 },
-      { 'key': 7, 'name': 'Надежда Смирнова', 'title': 'Sales Rep', 'parent': 3 },
-      { 'key': 8, 'name': 'Петр Николаев', 'title': 'Project Mgr', 'parent': 5 },
-      { 'key': 9, 'name': 'Евгени Иванов', 'title': 'Events Mgr', 'parent': 6 },
-      { 'key': 10, 'name': 'Роман Игнатьев', 'title': 'Engineering', 'parent': 4 },
-      { 'key': 11, 'name': 'Игнатий Романов', 'title': 'Process', 'parent': 5 },
-      { 'key': 12, 'name': 'Ирина Александрова', 'title': 'Software', 'parent': 10 },
-      { 'key': 13, 'name': 'Ольга Семенова', 'title': 'Testing', 'parent': 10 },
-      { 'key': 14, 'name': 'Marge Innovera', 'title': 'Hardware', 'parent': 10 },
-      { 'key': 15, 'name': 'Наталья Петова', 'title': 'Quality', 'parent': 5 },
-      { 'key': 16, 'name': 'Виктор Николаев', 'title': 'Sales Rep', 'parent': 3 }
-    ]
-  );
+  public model!: go.TreeModel;
+  //  = new go.TreeModel(
+  //   [
+  //     { 'key': 1, 'name': 'Иван Сергеев', 'title': 'CEO' },
+  //     { 'key': 2, 'name': 'Сергей Иванов', 'title': 'VP Marketing/Sales', 'parent': 1 },
+  //     { 'key': 3, 'name': 'Лена Николаева', 'title': 'Sales', 'parent': 2 },
+  //     { 'key': 4, 'name': 'Алексей Смирнов', 'title': 'VP Engineering', 'parent': 1 },
+  //     { 'key': 5, 'name': 'Мария Александрова', 'title': 'Manufacturing', 'parent': 4 },
+  //     { 'key': 6, 'name': 'Николай Алексеев', 'title': 'Marketing', 'parent': 2 },
+  //     { 'key': 7, 'name': 'Надежда Смирнова', 'title': 'Sales Rep', 'parent': 3 },
+  //     { 'key': 8, 'name': 'Петр Николаев', 'title': 'Project Mgr', 'parent': 5 },
+  //     { 'key': 9, 'name': 'Евгени Иванов', 'title': 'Events Mgr', 'parent': 6 },
+  //     { 'key': 10, 'name': 'Роман Игнатьев', 'title': 'Engineering', 'parent': 4 },
+  //     { 'key': 11, 'name': 'Игнатий Романов', 'title': 'Process', 'parent': 5 },
+  //     { 'key': 12, 'name': 'Ирина Александрова', 'title': 'Software', 'parent': 10 },
+  //     { 'key': 13, 'name': 'Ольга Семенова', 'title': 'Testing', 'parent': 10 },
+  //     { 'key': 14, 'name': 'Marge Innovera', 'title': 'Hardware', 'parent': 10 },
+  //     { 'key': 15, 'name': 'Наталья Петова', 'title': 'Quality', 'parent': 5 },
+  //     { 'key': 16, 'name': 'Виктор Николаев', 'title': 'Sales Rep', 'parent': 3 }
+  //   ]
+  // );
+
+    employee: any;
+    project: any;
 
   @Output()
   public nodeClicked = new EventEmitter();
 
-  constructor() { }
+  constructor(private storageService: StorageService, private projectService: ProjectService) { }
 
+  //
   ngOnInit(): void {
+    // get user from starageService
+    this.employee = this.storageService.getUser();    
   }
 
   public ngAfterViewInit() {
@@ -153,7 +161,21 @@ export class ProjectComponent implements OnInit {
         ) // end Horizontal Panel
       );  // end Node
 
-    this.diagram.model = this.model;
+
+       // get graph model
+    this.projectService.getProjectByName(this.employee.projects[0]).subscribe({
+      next: (response: any) => {
+        this.project = response;
+        // gojs.TreeModel initialization
+        this.model = new go.TreeModel(this.project.data);
+        this.diagram.model = this.model;
+      },
+      error: (error: HttpErrorResponse) => {
+        alert("Не удалось загрузить проект [name=" + this.employee.projects[0] + "]");
+        console.log(error.message);
+      },
+      complete: () => console.info('complete') 
+    });
 
     // when the selection changes, emit event to app-component updating the selected node
     this.diagram.addDiagramListener('ChangedSelection', (e) => {

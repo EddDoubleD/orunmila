@@ -1,6 +1,5 @@
 package com.edddoubled.orunmila.service;
 
-import com.edddoubled.orunmila.dto.Matrix;
 import com.edddoubled.orunmila.exception.ResourceLoadingException;
 import com.edddoubled.orunmila.model.ERole;
 import com.edddoubled.orunmila.model.Employee;
@@ -13,19 +12,16 @@ import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.stream.Collectors;
+import java.util.Collections;
 
 
-@FieldDefaults(level= AccessLevel.PRIVATE, makeFinal = true)
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @AllArgsConstructor
 @Component
 @Slf4j
 public class InitializationService {
-
     private static final String DIRECTORY = "orunmila-back/src/main/resources/data/";
     private static final String PROJECT = "projects.json";
     private static final String EMPLOYEE = "employees.json";
@@ -51,6 +47,7 @@ public class InitializationService {
         roleService.saveRole(new Role(ERole.OWNER));
         roleService.saveRole(new Role(ERole.SUPEVISOR));
         Role defaultRole = roleService.saveRole(new Role(ERole.WORKER));
+        roleService.saveRole(defaultRole);
         log.info("Base roles successfully created ");
 
         // Create projects by static resource
@@ -62,25 +59,10 @@ public class InitializationService {
         }
 
         try {
-            Employee.IDPNode[] defaultTemplate = ResourceLoader.loadJsonFile(DIRECTORY, DEFAULT_IDP, Employee.IDPNode[].class);
-            Matrix[] rolesMatrix = ResourceLoader.loadJsonFile(DIRECTORY, MATRIX, Matrix[].class);
-            Map<String, ERole> matrix = Arrays.stream(rolesMatrix)
-                    .collect(
-                            Collectors.toMap(Matrix::getLogin, m -> ERole.valueOf(m.getRole()),
-                                    (a, b) -> b));
-
-            Employee[] employees = ResourceLoader.loadJsonFile(DIRECTORY, EMPLOYEE, Employee[].class);
-            for (Employee employee : employees) {
-                Optional<Role> role = roleService.findRoleByName(matrix.get(employee.getLogin()));
-                if (role.isPresent()) {
-                    employee.setRole(role.get());
-                } else {
-                    employee.setRole(defaultRole);
-                }
-                employee.setIdpTemplate(Arrays.asList(defaultTemplate));
-                employeeService.save(employee);
-            }
-        } catch (ResourceLoadingException e) {
+            // Employee employees = ResourceLoader.loadJsonFile(DIRECTORY + "employees/", "popov_ivan.json", Employee.class);
+            Employee[] employees = ResourceLoader.loadJsonFromDir(DIRECTORY + "employees/", Employee[].class);
+            employeeService.saveAll(employees == null ? Collections.emptyList() : Arrays.asList(employees));
+        } catch (IOException e) {
             log.error(e.getMessage());
         }
 

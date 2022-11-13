@@ -23,7 +23,7 @@ public class OrunmilaApplication implements CommandLineRunner {
 	}
 
 	@Override
-	public void run(String... args) throws Exception {
+	public void run(String... args) {
 
 		initializationService.init(Boolean.parseBoolean(env.getProperty("initDb")));
 	}

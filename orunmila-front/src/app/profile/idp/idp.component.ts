@@ -16,13 +16,13 @@ const $ = gojs.GraphObject.make;
 export class IdpComponent implements OnInit {
   public diagram?: go.Diagram;
   employee: any;
-  data: MindMap = new MindMap();;
+  data: MindMap = new MindMap();
 
   constructor(private storageService: StorageService) { }
 
   ngOnInit(): void {
     this.employee = this.storageService.getUser();
-    this.data.setNodeArray(this.employee.idpTemplate);
+    this.data.setNodeArray(this.employee.data);
     //this.data['class'] = 'go.TreeModel';
     //this.load();
   }

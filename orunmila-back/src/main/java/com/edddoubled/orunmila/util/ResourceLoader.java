@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -17,6 +19,34 @@ import java.nio.file.Paths;
 @Slf4j
 public class ResourceLoader {
     private static final String PATH_SEPARATOR = "/";
+
+    public static <T> T loadJsonFromDir(String directoryPath, Class<T> clazz) throws IOException {
+        Path path = Paths.get(directoryPath);
+        if (Files.isDirectory(path)) {
+            List<String> contentArray = new ArrayList<>();
+            Files.list(path)
+                    .filter(file -> Files.isReadable(file) && file.toString().endsWith(".json"))
+                    .forEach(file -> {
+                        try {
+                            contentArray.add(Files.readString(file));
+                        } catch (IOException e) {
+                            log.error(e.getMessage() ,e);
+                        }
+                    });
+
+            StringBuilder builder = new StringBuilder();
+            builder.append("[");
+            for (String json : contentArray) {
+                builder.append(json).append(",");
+            }
+            builder.setLength(builder.length() - 1);
+            builder.append("]");
+
+            return JsonUtils.deserialize(builder.toString(), clazz);
+        }
+
+        return null;
+    }
 
     public static <T> T loadJsonFile(String directoryPath, String filePath, Class<T> clazz) throws ResourceLoadingException {
         String jsonText = loadTextFile(directoryPath, filePath);
