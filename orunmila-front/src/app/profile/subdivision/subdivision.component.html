@@ -1,1 +1,63 @@
-<p>subdivision works!</p>
+<div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="main-box clearfix">
+          <div class="table-responsive">
+            <table class="table user-list">
+              <thead>
+                <tr>
+                  <th style="text-align: left;"><span>Пользователь</span></th>
+                  <th class="text-center"><span>Логин</span></th>
+                  <th class="text-center"><span>Email</span></th>
+                  <th class="text-center"><span>Роли</span></th>
+                  <th class="text-center"><span>Действия</span></th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let user of users| paginate: { itemsPerPage: 3, currentPage: p, totalItems: total * s }">
+                <tr>
+                  <td>
+                    <img src="{{user.avatar}}" alt="">
+                    <span class="user-subhead" style="font-weight:bold">{{user.name}}</span><br/>
+                    <span class="user-subhead">{{user.position}}</span>
+                  </td>
+                  <td class="text-center">
+                    {{user.username}}
+                  </td>
+                  <td class="text-center">
+                    {{user.email}}
+                  </td>
+                  <td style="width: 20%;">
+                    <li *ngFor="let role of user.roles">
+                      <span class="badge badge-primary">{{role.name}}</span>
+                    </li>
+                  </td>
+                  <td style="width: 20%; text-align: center;">
+                    <a href="#" class="table-link">
+                      <span class="fa-stack">
+                        <i class="fa fa-square fa-stack-2x"></i>
+                        <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </a>
+                    <a href="#" class="table-link">
+                      <span class="fa-stack">
+                        <i class="fa fa-square fa-stack-2x"></i>
+                        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </a>
+                    <a href="#" class="table-link danger">
+                      <span class="fa-stack">
+                        <i class="fa fa-square fa-stack-2x"></i>
+                        <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+  
