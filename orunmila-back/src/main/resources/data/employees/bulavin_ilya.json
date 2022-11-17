@@ -1,14 +1,14 @@
 {
-  "name": "Сулимов Данил Васильевич",
-  "login": "sulimov.danil",
-  "email": "sulimov.danil@otr.ru",
-  "skype": "dandy20341",
+  "name": "Булавин Илья Владимирович",
+  "login": "bulavin.ilya",
+  "email": "bulavin.ilya@otr.ru",
+  "skype": "sam47kon",
   "github": null,
   "projects": [
     "ПУР"
   ],
-  "position": "Разработчик python",
-  "subdivision": "Отдел разработки и автоматизации",
+  "position": "РГ программист",
+  "subdivision": "Отдел платформенной разработки Java",
   "skills": [
     {
       "header": "soft",

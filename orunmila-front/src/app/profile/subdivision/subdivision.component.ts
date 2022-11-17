@@ -22,12 +22,13 @@ export class SubdivisionComponent implements OnInit {
 
   ngOnInit(): void {
     this.employee = this.storageService.getUser();
+    this.getUsers();
   }
 
   public getUsers(): void {
     this.employeeService.getPageableEmployees(this.p, this.s).subscribe(
       (response: any) => {
-          this.users = response.users;
+          this.users = response.employees;
           this.total = response.totalPages;
           this.itemsSize = response.itemsSize;
       }),

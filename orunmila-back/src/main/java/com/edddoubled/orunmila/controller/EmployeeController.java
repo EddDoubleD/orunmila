@@ -33,7 +33,7 @@ public class EmployeeController {
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
 
-    @GetMapping("/all/pageable")
+    @GetMapping("/pageable")
     public ResponseEntity<PageableEmployees> getPageableEmployees(@RequestParam("page") Integer page,
                                                                   @RequestParam("size") Integer size) {
         PageableEmployees response = new PageableEmployees();

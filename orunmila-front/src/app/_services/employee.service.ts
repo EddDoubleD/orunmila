@@ -42,6 +42,6 @@ export class EmployeeService {
      * @returns fixed portion of employees
      */
     public getPageableEmployees(page: number, size: number) : Observable<any> {
-        return this.http.get<void>(API_URL + `all/pageble?page=${page}&size=${size}`);
+        return this.http.get<void>(API_URL + `pageable?page=${page}&size=${size}`);
     }
 }

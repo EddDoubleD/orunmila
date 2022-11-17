@@ -212,6 +212,8 @@ export class IdpComponent implements OnInit {
 
       // read in the predefined graph using the JSON format data held in the "mySavedModel" textarea
       this.load();
+      // make the graph beautiful
+      this.layoutAll();
     }
 
     spotConverter(dir: any, from: any): go.Spot {
