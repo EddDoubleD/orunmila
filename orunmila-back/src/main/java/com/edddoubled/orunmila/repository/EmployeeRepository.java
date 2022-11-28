@@ -15,6 +15,8 @@ public interface EmployeeRepository extends MongoRepository<Employee, String> {
 
     Optional<Employee> findEmployeeByLogin(String login);
 
+    Optional<Employee> findEmployeeById(String id);
+
     Page<Employee> findAll(Pageable pageable);
 
     @Query("{ 'projects' : ?0 }")

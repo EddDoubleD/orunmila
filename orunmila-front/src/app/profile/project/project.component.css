@@ -1,6 +1,7 @@
 #projectDiagram {
-    width: 785px;
-    height: 500px;
-    border: 1px solid black;
-    background-color: #696969;
+    margin-top: .5%;
+    width: 790px;
+    height: 510px;
+    border: 1px solid rgb(182, 182, 182);
+    background-color: #e3e3e3;
   }

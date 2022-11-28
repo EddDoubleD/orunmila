@@ -42,7 +42,7 @@
     }
   ],
   "data": [
-    {"key":0,"parent":0,"text":"Project Manager","brush":"purple","dir":null,"loc":"-22 90.5"},
+    {"key":0,"text":"Project Manager","brush":"purple","loc":"0 0"},
     {"key":1,"parent":0,"text":"Making product decisions","brush":"skyblue","dir":"right","loc":"93.3798828125 12.5"},
     {"key":11,"parent":1,"text":"Product Management","brush":"skyblue","dir":"right","loc":"260.06787109375 -13.5"},
     {"key":12,"parent":1,"text":"Product Strategy","brush":"skyblue","dir":"right","loc":"260.06787109375 12.5"},

@@ -55,6 +55,10 @@ public class EmployeeService {
         return employeeRepository.save(employee);
     }
 
+    public Optional<Employee> findById(String id) {
+        return employeeRepository.findEmployeeById(id);
+    }
+
     public List<Employee> saveAll(Collection<Employee> employees) {
         return employeeRepository.saveAll(employees);
     }

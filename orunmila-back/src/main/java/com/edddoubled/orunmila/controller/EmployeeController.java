@@ -1,8 +1,10 @@
 package com.edddoubled.orunmila.controller;
 
+import com.edddoubled.orunmila.dto.request.UpdateIDPRequest;
 import com.edddoubled.orunmila.dto.response.PageableEmployees;
 import com.edddoubled.orunmila.model.Employee;
 import com.edddoubled.orunmila.service.EmployeeService;
+import com.google.gson.Gson;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -82,4 +84,18 @@ public class EmployeeController {
         Employee updateEmployee = employeeService.save(employee);
         return new ResponseEntity<>(updateEmployee, HttpStatus.OK);
     }
+
+    @PutMapping("/updateSchema")
+    public ResponseEntity<Employee> updateIDPSchema(@RequestBody UpdateIDPRequest request) {
+        Optional<Employee> updateEmployee = employeeService.findEmployeeByLogin(request.getLogin());
+        if (updateEmployee.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        Employee employee = updateEmployee.get();
+        employee.setData((new Gson()).fromJson(request.getData(), UpdateIDPRequest.Model.class).getNodeDataArray());
+        employee = employeeService.save(employee);
+        return new ResponseEntity<>(employee, HttpStatus.OK);
+    }
+
 }

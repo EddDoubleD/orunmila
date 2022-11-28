@@ -1,12 +1,17 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import * as go from 'gojs';
 
 import * as gojs from 'gojs';
 import { MindMap } from 'src/app/_models/mindMap';
+import { UpdateIdpRequest } from 'src/app/_models/updateIdpRequest';
+import { EmployeeService } from 'src/app/_services/employee.service';
 import { StorageService } from 'src/app/_services/storage.service';
 import { StoreService } from 'src/app/_services/store.service';
 
 const $ = gojs.GraphObject.make;
+
+
 
 @Component({
   selector: 'app-idp',
@@ -17,8 +22,9 @@ export class IdpComponent implements OnInit {
   public diagram?: go.Diagram;
   employee: any;
   data: MindMap = new MindMap();
+  
 
-  constructor(private storageService: StorageService) { }
+  constructor(private storageService: StorageService, private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
     this.employee = this.storageService.getUser();
@@ -55,6 +61,8 @@ export class IdpComponent implements OnInit {
       } else {
         if (idx >= 0) document.title = document.title.slice(0, idx);
       }
+      const updateBtn = document.getElementById("UpdateButton") as HTMLButtonElement;
+      if (updateBtn && this.diagram) updateBtn.disabled = !this.diagram.isModified;
     });
 
     // a node consists of some text with a line shape underneath
@@ -330,6 +338,28 @@ export class IdpComponent implements OnInit {
       if (!this.diagram) return
       (document.getElementById("mySavedModel") as HTMLTextAreaElement).value = this.diagram.model.toJson();
       this.diagram.isModified = false;
+    }
+
+    // update the IDP schema for the current employee
+    update() {
+      if (!this.diagram) return
+      // trying to send a put request to update the IPD schema
+      this.employeeService.updateIDPSchema(new UpdateIdpRequest(this.employee.login, this.diagram.model.toJson()))
+      .subscribe({
+        next: (response: any) => {
+         this.employee = response;
+         this.storageService.saveUser(this.employee);
+        },
+        error: (error: HttpErrorResponse) => {
+          console.log(error.message);
+        },
+        complete: () => console.info('complete') 
+      });
+    }
+
+    onLoad() {
+      if (!this.diagram) return
+      this.diagram.model = go.Model.fromJson((document.getElementById("mySavedModel") as HTMLTextAreaElement).value);
     }
     
     load() {

@@ -1,10 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { SearchQuery } from '../_models/searchQuery';
 
 const API_URL = '/api/employee/';
+const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json'
+      // Authorization: 'my-auth-token'
+    })
+  };
 
 /**
  * 
@@ -43,5 +49,14 @@ export class EmployeeService {
      */
     public getPageableEmployees(page: number, size: number) : Observable<any> {
         return this.http.get<void>(API_URL + `pageable?page=${page}&size=${size}`);
+    }
+
+    /**
+     * Sending an update IDPSchema request
+     * @param data {id: '', data: [{}{}]}
+     * @returns updated employee
+     */
+    public updateIDPSchema(data: any) : Observable<any> {
+        return this.http.put<void>(API_URL + `updateSchema`, data, httpOptions);
     }
 }
