@@ -28,9 +28,10 @@ export class IdpComponent implements OnInit {
 
   ngOnInit(): void {
     this.employee = this.storageService.getUser();
-    this.data.setNodeArray(this.employee.data);
-    //this.data['class'] = 'go.TreeModel';
-    //this.load();
+    // We can get null fields from the service and they will be present in the JSON-object, which breaks the layout of the graph at its root
+    // In order for the graph root to be displayed beautifully, it is necessary to remove the null tag "dir" 
+    var data = JSON.stringify(this.employee.data).replace('"dir":null,', '');
+    this.data.setNodeArray(JSON.parse(data));
   }
 
   public ngAfterViewInit() {
@@ -53,16 +54,15 @@ export class IdpComponent implements OnInit {
 
     this.diagram.addDiagramListener("Modified", e => {
       // 
-      const button = document.getElementById("SaveButton") as HTMLButtonElement;
-      if (button && this.diagram) button.disabled = !this.diagram.isModified;
+      const pushBtn = document.getElementById("PushButton") as HTMLButtonElement;
+      if (pushBtn && this.diagram) pushBtn.disabled = !this.diagram.isModified;
       var idx = document.title.indexOf("*");
       if (this.diagram && this.diagram.isModified) {
         if (idx < 0) document.title += "*";
       } else {
         if (idx >= 0) document.title = document.title.slice(0, idx);
       }
-      const updateBtn = document.getElementById("UpdateButton") as HTMLButtonElement;
-      if (updateBtn && this.diagram) updateBtn.disabled = !this.diagram.isModified;
+      
     });
 
     // a node consists of some text with a line shape underneath

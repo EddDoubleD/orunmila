@@ -3,15 +3,16 @@
 
 </div>
 <br/>
-<button id="UpdateButton" (click)="update()" disabled="">Update</button>
-<br/>
-<button id="SaveButton" (click)="save()" disabled="">Save</button>
-
-<button (click)="onLoad()">Load</button>
-
-<button (click)="layoutAll()">Layout</button>
+<!-- <button id="UpdateButton" (click)="update()" disabled="">Update</button>
+<br/> -->
 Diagram Model saved in JSON format:
-<br/>
+<div>
+    
+    <button id="PushButton" type="button" class="btn btn-success" (click)="update()" disabled="">Push to server</button>
+    <button id="LoadButton" type="button" class="btn btn-info" (click)="onLoad()">Load from diagram</button>
+    <button id="LayoutButton" type="button" class="btn btn-success" (click)="layoutAll()">Layout</button>
+</div>
+
 
 <textarea id="mySavedModel" style="width:100%;height:200px">
 </textarea>

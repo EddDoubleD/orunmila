@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @FieldDefaults(level= AccessLevel.PRIVATE, makeFinal = true)
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class UpdateIDPRequest implements Serializable {
     String login;
 

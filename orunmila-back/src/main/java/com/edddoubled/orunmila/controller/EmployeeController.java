@@ -4,6 +4,7 @@ import com.edddoubled.orunmila.dto.request.UpdateIDPRequest;
 import com.edddoubled.orunmila.dto.response.PageableEmployees;
 import com.edddoubled.orunmila.model.Employee;
 import com.edddoubled.orunmila.service.EmployeeService;
+import com.edddoubled.orunmila.util.JsonUtils;
 import com.google.gson.Gson;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -93,7 +94,7 @@ public class EmployeeController {
         }
 
         Employee employee = updateEmployee.get();
-        employee.setData((new Gson()).fromJson(request.getData(), UpdateIDPRequest.Model.class).getNodeDataArray());
+        employee.setData(JsonUtils.deserialize(request.getData(), UpdateIDPRequest.Model.class).getNodeDataArray());
         employee = employeeService.save(employee);
         return new ResponseEntity<>(employee, HttpStatus.OK);
     }
