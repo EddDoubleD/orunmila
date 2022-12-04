@@ -1,6 +1,16 @@
 <div class="container">
     <div class="row">
       <div class="col-lg-12">
+        <div class="input-group">
+          <input type="text" class="form-control" value="">
+          <span class="input-group-btn">
+            <button id="SearchButton" class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
+          </span>
+        </div>
+        <p>Showing all results matching "web development"</p>
+        
+        <div class="padding"></div>
+        
         <div class="main-box clearfix">
           <div class="table-responsive">
             <table class="table user-list">
@@ -16,12 +26,12 @@
               <tbody *ngFor="let user of users| paginate: { itemsPerPage: 3, currentPage: p, totalItems: total * s }">
                 <tr>
                   <td>
-                    <img src="{{user.avatar}}" alt="">
+                    <!-- <img src="{{user.avatar}}" alt=""> -->
                     <span class="user-subhead" style="font-weight:bold">{{user.name}}</span><br/>
                     <span class="user-subhead">{{user.position}}</span>
                   </td>
                   <td class="text-center">
-                    {{user.username}}
+                    {{user.login}}
                   </td>
                   <td class="text-center">
                     {{user.email}}

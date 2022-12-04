@@ -1,3 +1,7 @@
+/* SEARCH PANEL */
+.btn {
+    margin-bottom: 5px;
+}
 /* USER LIST TABLE */
 .user-list tbody td > img {
     position: relative;

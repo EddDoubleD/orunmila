@@ -16,29 +16,8 @@ export class ProjectComponent implements OnInit {
   public diagram!: go.Diagram;
 
   public model!: go.TreeModel;
-  //  = new go.TreeModel(
-  //   [
-  //     { 'key': 1, 'name': 'Иван Сергеев', 'title': 'CEO' },
-  //     { 'key': 2, 'name': 'Сергей Иванов', 'title': 'VP Marketing/Sales', 'parent': 1 },
-  //     { 'key': 3, 'name': 'Лена Николаева', 'title': 'Sales', 'parent': 2 },
-  //     { 'key': 4, 'name': 'Алексей Смирнов', 'title': 'VP Engineering', 'parent': 1 },
-  //     { 'key': 5, 'name': 'Мария Александрова', 'title': 'Manufacturing', 'parent': 4 },
-  //     { 'key': 6, 'name': 'Николай Алексеев', 'title': 'Marketing', 'parent': 2 },
-  //     { 'key': 7, 'name': 'Надежда Смирнова', 'title': 'Sales Rep', 'parent': 3 },
-  //     { 'key': 8, 'name': 'Петр Николаев', 'title': 'Project Mgr', 'parent': 5 },
-  //     { 'key': 9, 'name': 'Евгени Иванов', 'title': 'Events Mgr', 'parent': 6 },
-  //     { 'key': 10, 'name': 'Роман Игнатьев', 'title': 'Engineering', 'parent': 4 },
-  //     { 'key': 11, 'name': 'Игнатий Романов', 'title': 'Process', 'parent': 5 },
-  //     { 'key': 12, 'name': 'Ирина Александрова', 'title': 'Software', 'parent': 10 },
-  //     { 'key': 13, 'name': 'Ольга Семенова', 'title': 'Testing', 'parent': 10 },
-  //     { 'key': 14, 'name': 'Marge Innovera', 'title': 'Hardware', 'parent': 10 },
-  //     { 'key': 15, 'name': 'Наталья Петова', 'title': 'Quality', 'parent': 5 },
-  //     { 'key': 16, 'name': 'Виктор Николаев', 'title': 'Sales Rep', 'parent': 3 }
-  //   ]
-  // );
-
-    employee: any;
-    project: any;
+  employee: any;
+  project: any;
 
   @Output()
   public nodeClicked = new EventEmitter();
@@ -72,6 +51,14 @@ export class ProjectComponent implements OnInit {
         'undoManager.isEnabled': true
       }
     );
+
+    // the Diagram's context menu just displays commands for general functionality
+    this.diagram.contextMenu =
+    $("ContextMenu",
+      $("ContextMenuButton",
+        $(go.TextBlock, "layoutAll"),
+        { click: (e, obj) => alert("click" + obj.toString())})
+      );
 
     // define the Node template
     this.diagram.nodeTemplate =
@@ -182,7 +169,6 @@ export class ProjectComponent implements OnInit {
      // if (!this.diagram) return;
       
       const node = this.diagram.selection.first();
-      
       this.nodeClicked.emit(node);
     });
   }

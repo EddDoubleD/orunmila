@@ -5,7 +5,6 @@ import com.edddoubled.orunmila.dto.response.PageableEmployees;
 import com.edddoubled.orunmila.model.Employee;
 import com.edddoubled.orunmila.service.EmployeeService;
 import com.edddoubled.orunmila.util.JsonUtils;
-import com.google.gson.Gson;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -94,7 +93,10 @@ public class EmployeeController {
         }
 
         Employee employee = updateEmployee.get();
-        employee.setData(JsonUtils.deserialize(request.getData(), UpdateIDPRequest.Model.class).getNodeDataArray());
+        // "class" is a reserved word in java, but it is used in gojs
+        // replace class -> clazz
+        String data = request.getData().replace("class", "clazz");
+        employee.setData(JsonUtils.deserialize(data, UpdateIDPRequest.Model.class).getNodeDataArray());
         employee = employeeService.save(employee);
         return new ResponseEntity<>(employee, HttpStatus.OK);
     }

@@ -7,7 +7,6 @@ import { MindMap } from 'src/app/_models/mindMap';
 import { UpdateIdpRequest } from 'src/app/_models/updateIdpRequest';
 import { EmployeeService } from 'src/app/_services/employee.service';
 import { StorageService } from 'src/app/_services/storage.service';
-import { StoreService } from 'src/app/_services/store.service';
 
 const $ = gojs.GraphObject.make;
 
