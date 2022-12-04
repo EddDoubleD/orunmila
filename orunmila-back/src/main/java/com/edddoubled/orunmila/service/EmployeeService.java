@@ -1,6 +1,7 @@
 package com.edddoubled.orunmila.service;
 
 
+import com.edddoubled.orunmila.exception.EmployeeLoadingException;
 import com.edddoubled.orunmila.model.Employee;
 import com.edddoubled.orunmila.repository.EmployeeRepository;
 import lombok.AccessLevel;
@@ -48,6 +49,23 @@ public class EmployeeService {
 
     public Optional<Employee> findEmployeeByLogin(String login) {
         return employeeRepository.findEmployeeByLogin(login);
+    }
+
+    /**
+     * Search for matching employees by name or login
+     * @param login part of name or login
+     * @param page collection position
+     * @param size collection dimension
+     * @return collection of the given size by position
+     */
+    public Page<Employee> findEmployeeByLogin(String login, int page, int size) throws EmployeeLoadingException {
+        Pageable pageable = PageRequest.of(page, size);
+        try {
+            return employeeRepository.findEmployeeByLoginRegExp(login, pageable);
+        } catch (Exception e) {
+            log.error(e.getMessage() , e);
+            throw new EmployeeLoadingException(e.getMessage());
+        }
     }
 
 

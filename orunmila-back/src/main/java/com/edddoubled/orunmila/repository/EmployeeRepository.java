@@ -21,4 +21,7 @@ public interface EmployeeRepository extends MongoRepository<Employee, String> {
 
     @Query("{ 'projects' : ?0 }")
     List<Employee> findEmployeesByProject(String project);
+
+    @Query("{$or : [{'login': { $regex: ?0, $options:'i' }}, {'name': { $regex: ?0, $options:'i' }}]}")
+    Page<Employee> findEmployeeByLoginRegExp(String login, Pageable pageable);
 }

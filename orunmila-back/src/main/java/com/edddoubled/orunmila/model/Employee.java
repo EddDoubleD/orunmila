@@ -56,6 +56,7 @@ public class Employee implements Serializable {
         int key;
         int parent;
         String text;
+        String link;
         String brush;
         String dir;
         String loc;

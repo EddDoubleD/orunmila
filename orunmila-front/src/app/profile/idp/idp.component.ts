@@ -120,6 +120,9 @@ export class IdpComponent implements OnInit {
       this.diagram.nodeTemplate.contextMenu =
         $("ContextMenu",
           $("ContextMenuButton",
+            $(go.TextBlock, "GoTo"),
+            { click: (e, obj) => this.alertLink(obj) }),
+          $("ContextMenuButton",
             $(go.TextBlock, "Bigger"),
             { click: (e, obj) => this.changeTextSize(obj, 1.1) }),
           $("ContextMenuButton",
@@ -231,6 +234,13 @@ export class IdpComponent implements OnInit {
       }
     }
 
+    alertLink(obj: any) {
+      var adorn = obj.part;
+      var node = adorn.adornedPart;
+      var tb = node.findObject("link");
+      alert(node)
+    }
+
     changeTextSize(obj: any, factor: any) {
       var adorn = obj.part;
       adorn.diagram.startTransaction("Change Text Size");
@@ -336,7 +346,7 @@ export class IdpComponent implements OnInit {
     save() {
       if (!this.diagram) return
       (document.getElementById("mySavedModel") as HTMLTextAreaElement).value = this.diagram.model.toJson();
-      this.diagram.isModified = false;
+      //this.diagram.isModified = false;
     }
 
     // update the IDP schema for the current employee
@@ -348,6 +358,9 @@ export class IdpComponent implements OnInit {
         next: (response: any) => {
          this.employee = response;
          this.storageService.saveUser(this.employee);
+         const pushBtn = document.getElementById("PushButton") as HTMLButtonElement;
+
+         if (pushBtn) pushBtn.disabled = true;
         },
         error: (error: HttpErrorResponse) => {
           console.log(error.message);

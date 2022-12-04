@@ -2,6 +2,7 @@ package com.edddoubled.orunmila.controller;
 
 import com.edddoubled.orunmila.dto.request.UpdateIDPRequest;
 import com.edddoubled.orunmila.dto.response.PageableEmployees;
+import com.edddoubled.orunmila.exception.EmployeeLoadingException;
 import com.edddoubled.orunmila.model.Employee;
 import com.edddoubled.orunmila.service.EmployeeService;
 import com.edddoubled.orunmila.util.JsonUtils;
@@ -40,6 +41,29 @@ public class EmployeeController {
                                                                   @RequestParam("size") Integer size) {
         PageableEmployees response = new PageableEmployees();
         Page<Employee> pageable = employeeService.findPageableEmployees(page - 1, size);
+        if (CollectionUtils.isEmpty(pageable.getContent()))  {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        response.setPage(page);
+        response.setTotalPages(pageable.getTotalPages());
+        response.setItemsSize(pageable.getTotalElements());
+        response.setEmployees(pageable.getContent());
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/pageable/login")
+    public ResponseEntity<PageableEmployees> getPageableEmployeesByLogin(@RequestParam("login") String login,
+                                                                  @RequestParam("page") Integer page,
+                                                                  @RequestParam("size") Integer size) {
+        PageableEmployees response = new PageableEmployees();
+        Page<Employee> pageable;
+        try {
+            pageable = employeeService.findEmployeeByLogin(login, page - 1, size);
+        } catch (EmployeeLoadingException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
         if (CollectionUtils.isEmpty(pageable.getContent()))  {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

@@ -16,11 +16,13 @@ export class SubdivisionComponent implements OnInit {
   total: number = 0;
   itemsSize: number = 0;
   users: any;
+  query?: string;
 
   constructor(private storageService: StorageService,
     private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
+    this.query = ''
     this.employee = this.storageService.getUser();
     this.getUsers();
   }
@@ -39,6 +41,26 @@ export class SubdivisionComponent implements OnInit {
           alert(`Error with status: ${error.status}`);
         }
       }
+  }
+
+  public searchUsers(): void {
+    if (this.query && this.query != '') {
+      this.employeeService.getPageableEmployeesByLogin(this.query, this.p, this.s).subscribe(
+        (response: any) => {
+            this.users = response.employees;
+            this.total = response.totalPages;
+            this.itemsSize = response.itemsSize;
+        }),
+        (error: HttpErrorResponse) => {
+          if (error.error) {
+            alert(error.error.message);
+          } else {
+            alert(`Error with status: ${error.status}`);
+          }
+        }
+    } else {
+      this.getUsers();
+    } 
   }
   
   /**

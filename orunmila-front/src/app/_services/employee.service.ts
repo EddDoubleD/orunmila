@@ -51,6 +51,17 @@ export class EmployeeService {
         return this.http.get<void>(API_URL + `pageable?page=${page}&size=${size}`);
     }
 
+     /**
+     * Customizable selection of employees by name or login portion
+     * 
+     * @param page page number (starts with one) 
+     * @param size employee pack size
+     * @returns fixed portion of employees
+     */
+      public getPageableEmployeesByLogin(login: string, page: number, size: number) : Observable<any> {
+        return this.http.get<void>(API_URL + `pageable/login?page=${page}&size=${size}&login=${login}`);
+    }
+
     /**
      * Sending an update IDPSchema request
      * @param data {id: '', data: [{}{}]}

@@ -51,7 +51,7 @@
     {"key":21,"parent":2,"text":"Business Knowledge","brush":"darkseagreen","dir":"right","loc":"169.0234375 64.5"},
     {"key":22,"parent":2,"text":"The structure of the company","brush":"darkseagreen","dir":"right","loc":"169.0234375 90.5"},
     {"key":3,"parent":0,"text":"Communications","brush":"palevioletred","dir":"left","loc":"-42 58"},
-    {"key":31,"parent":3,"text":"Conflict Management","brush":"palevioletred","dir":"left","loc":"-158.814453125 32"},
+    {"key":31,"parent":3,"text":"Conflict Management", "link": "some link","brush":"palevioletred","dir":"left","loc":"-158.814453125 32"},
     {"key":32,"parent":3,"text":"Public performance","brush":"palevioletred","dir":"left","loc":"-158.814453125 58"},
     {"key":33,"parent":3,"text":"Giving and getting feedback","brush":"palevioletred","dir":"left","loc":"-158.814453125 84"},
     {"key":4,"parent":0,"text":"Intellection","brush":"coral","dir":"left","loc":"-42 123"},
