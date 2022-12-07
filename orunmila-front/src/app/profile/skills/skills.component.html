@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="main-body">
+        <div class="row">
+             <div class="col-sm-12" *ngFor="let d of data">
+                 <div class="card">
+                    <div class="card-body">
+                     <h5 class="d-flex align-items-center mb-3">{{d.header}}</h5>
+                        <div *ngFor="let sp of d.skills">
+                         <p>{{sp.title}}</p>
+                            <div class="progress mb-3" style="height: 5px">
+                                <div class="progress-bar {{sp.color}}" role="progressbar" style="width: {{sp.progress}}%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>

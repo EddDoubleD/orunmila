@@ -1,0 +1,33 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+    <div class="view-account">
+        <section class="module">
+            <div class="module-inner">
+                <div class="side-bar">
+                    <div class="user-info">
+                        <img class="img-profile img-circle img-responsive center-block" src="assets/HS9.png" alt="">
+                        <ul class="meta list list-unstyled">
+                            <li class="name">{{employee.name}}
+                                <label class="label label-info">{{employee.position}}</label>
+                            </li>
+                        </ul>
+                    </div>
+            		<nav class="side-menu" id="menu">
+        				<ul class="nav">
+        					<li><a href="profile/details?id=0"><span class="fa fa-user"></span> Профиль</a></li>
+        					<li><a href="profile/idp?id=1" ><span class="fa fa-book"></span> ИПР</a></li>
+        					<li><a href="profile/skills?id=2"><span class="fa fa-puzzle-piece"></span> Скиллы</a></li>
+        					<li><a href="profile/project?id=3"><span class="fa fa-users"></span> Проект</a></li>
+        					<li><a href="profile/subdivision?id=4"><span class="fa fa-sitemap"></span> Подразделение</a></li>
+        				</ul>
+        			</nav>
+                </div>
+                <div class="content-panel">
+                    <div class="container">
+                        <router-outlet></router-outlet>
+                     </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

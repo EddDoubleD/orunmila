@@ -1,0 +1,49 @@
+    <form class="form-horizontal">
+        <fieldset class="fieldset">
+            <h1 class="fieldset-title">Проектная информация</h1>
+            <div class="form-group">
+                <h6 class="col-md-2 col-sm-3 col-xs-12 control-label">ФИО</h6>
+                <div class="col-md-10 col-sm-9 col-xs-12" style="color:gray">
+                    <p>{{employee.name}}</p>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <h6 class="col-md-2 col-sm-3 col-xs-12 control-label">Роль</h6>
+                <div class="col-md-10 col-sm-9 col-xs-12" style="color:gray">
+                    {{employee.position}}
+                </div>
+            </div>
+            <div class="form-group">
+                <h6 class="col-md-2 col-sm-3 col-xs-12 control-label">Проекты</h6>
+                <div class="col-md-10 col-sm-9 col-xs-12" style="color:gray">
+                    {{employee.projects[0]}}
+                </div>
+            </div>
+        </fieldset>
+        <br/>
+        <fieldset class="fieldset">
+            <h2 class="fieldset-title">Контакты</h2>
+            <div class="form-group">
+                <h6 class="col-md-2  col-sm-3 col-xs-12 control-label">Email</h6>
+                <div class="col-md-10 col-sm-9 col-xs-12" style="color:gray">
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                    {{employee.email}}
+                </div>
+            </div>
+            <div class="form-group">
+                <h6 class="col-md-2  col-sm-3 col-xs-12 control-label">Skype</h6>
+                <div class="col-md-10 col-sm-9 col-xs-12" style="color:gray">
+                    <i class="fa fa-skype" aria-hidden="true"></i>
+                    {{employee.skype}}
+                </div>
+            </div>
+            <div class="form-group" *ngIf="employee.github">
+                <h6 class="col-md-2  col-sm-3 col-xs-12 control-label">GitHub</h6>
+                <div class="col-md-10 col-sm-9 col-xs-12" style="color:gray">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                    {{employee.github}}
+                </div>
+            </div>
+        </fieldset>
+    </form>

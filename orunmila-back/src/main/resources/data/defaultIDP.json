@@ -1,0 +1,10 @@
+[
+  {"key":0,"text":"IDP","loc":"0 0"},
+  {"key":1,"parent":0,"text":"Spring","brush":"skyblue","dir":"right","loc":"111.93310546875 -15.5"},
+  {"key":11,"parent":1,"text":"MVC","brush":"skyblue","dir":"right","loc":"169.51123046875 -41.5"},
+  {"key":12,"parent":1,"text":"Security","brush":"skyblue","dir":"right","loc":"169.51123046875 -15.5"},
+  {"key":13,"parent":1,"text":"Data","brush":"skyblue","dir":"right","loc":"169.51123046875 10.5"},
+  {"key":2,"parent":0,"text":"Java","brush":"darkseagreen","dir":"right","loc":"111.93310546875 10.5"},
+  {"key":3,"parent":0,"text":"soft","brush":"palevioletred","dir":"left","loc":"-20 10.5"},
+  {"text":"UFOS","parent":0,"key":-17,"loc":"111.93310546875 26"}
+]

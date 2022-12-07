@@ -1,0 +1,66 @@
+{
+  "name": "Гиззатуллин Артём Ринатович",
+  "login": "gizzatullin.artem",
+  "email": "gizzatullin.artem@otr.ru",
+  "skype": "live:gartemr96",
+  "github": null,
+  "projects": [
+    "ПУР"
+  ],
+  "position": "Программист",
+  "subdivision": "Отдел платформенной разработки Java",
+  "skills": [
+    {
+      "header": "soft",
+      "skills" : [
+        {
+          "title": "Communications",
+          "progress": 90
+        },
+        {
+          "title": "Intellection",
+          "progress": 85
+        }
+      ]
+    },
+    {
+      "header": "hard",
+      "skills" : [
+        {
+          "title": "Making product decisions",
+          "progress": 80
+        },
+        {
+          "title": "Integrator",
+          "progress": 85
+        },
+        {
+          "title": "People management",
+          "progress": 70
+        }
+      ]
+    }
+  ],
+  "data": [
+    {"key":0,"text":"Project Manager","brush":"purple","loc":"0 0"},
+    {"key":1,"parent":0,"text":"Making product decisions","brush":"skyblue","dir":"right","loc":"93.3798828125 12.5"},
+    {"key":11,"parent":1,"text":"Product Management","brush":"skyblue","dir":"right","loc":"260.06787109375 -13.5"},
+    {"key":12,"parent":1,"text":"Product Strategy","brush":"skyblue","dir":"right","loc":"260.06787109375 12.5"},
+    {"key":13,"parent":1,"text":"Product Understanding","brush":"skyblue","dir":"right","loc":"260.06787109375 38.5"},
+    {"key":2,"parent":0,"text":"Integrator","brush":"darkseagreen","dir":"right","loc":"93.3798828125 90.5"},
+    {"key":21,"parent":2,"text":"Business Knowledge","brush":"darkseagreen","dir":"right","loc":"169.0234375 64.5"},
+    {"key":22,"parent":2,"text":"The structure of the company","brush":"darkseagreen","dir":"right","loc":"169.0234375 90.5"},
+    {"key":3,"parent":0,"text":"Communications","brush":"palevioletred","dir":"left","loc":"-42 58"},
+    {"key":31,"parent":3,"text":"Conflict Management", "link": "some link","brush":"palevioletred","dir":"left","loc":"-158.814453125 32"},
+    {"key":32,"parent":3,"text":"Public performance","brush":"palevioletred","dir":"left","loc":"-158.814453125 58"},
+    {"key":33,"parent":3,"text":"Giving and getting feedback","brush":"palevioletred","dir":"left","loc":"-158.814453125 84"},
+    {"key":4,"parent":0,"text":"Intellection","brush":"coral","dir":"left","loc":"-42 123"},
+    {"key":41,"parent":4,"text":"Making decisions","brush":"coral","dir":"left","loc":"-124.14990234375 110"},
+    {"key":42,"parent":4,"text":"Strategic vision","brush":"coral","dir":"left","loc":"-124.14990234375 136"},
+    {"key":-18,"parent":2,"text":"Corporate culture","brush":"darkseagreen","dir":"right","loc":"169.0234375 116.5"},
+    {"key":-17,"parent":0,"text":"People management","brush":"purple","dir":"right","loc":"93.3798828125 168.5"},
+    {"key":-19,"parent":-17,"text":"Administrative work","brush":"purple","dir":"right","loc":"233.3505859375 142.5"},
+    {"key":-20,"parent":-17,"text":"Delegation","brush":"purple","dir":"right","loc":"233.3505859375 168.5"},
+    {"key":-21,"parent":-17,"text":"Motivation","brush":"purple","dir":"right","loc":"233.3505859375 194.5"}
+  ]
+}
