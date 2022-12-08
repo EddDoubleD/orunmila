@@ -1,11 +1,7 @@
-import { HttpErrorResponse } from '@angular/common/http';
-import { Expansion } from '@angular/compiler';
 import { Input, Component, OnInit, ɵsetAllowDuplicateNgModuleIdsForTest } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Subscription } from 'rxjs/internal/Subscription';
-import { EmployeeService } from '../_services/employee.service';
 import { StorageService } from '../_services/storage.service';
-import { StoreService } from '../_services/store.service';
 
 @Component({
   selector: 'app-profile',

@@ -28,6 +28,9 @@ public class Employee implements Serializable {
     @Size(max = 40)
     String login;
 
+    @Size(max=20)
+    String img;
+
     @NotBlank
     @Size(max = 50)
     @Email

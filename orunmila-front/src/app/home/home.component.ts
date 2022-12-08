@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { EmployeeService } from '../_services/employee.service';
 import { SearchQuery } from '../_models/searchQuery';
-import { StoreService } from '../_services/store.service';
 import { StorageService } from '../_services/storage.service';
 
 @Component({
